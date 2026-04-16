@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Si Paling Bunda - Ibu Bahagia, Disayang Keluarga</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --yellow:   #FFD94A;
+  --yellow-pale: #FFF8DC;
+  --coral:    #FF6B6B;
+  --coral-pale: #FFF0F0;
+  --mint:     #4ECDC4;
+  --mint-pale: #E8FAF9;
+  --violet:   #A78BFA;
+  --violet-pale: #F3EFFE;
+  --navy:     #1A1A2E;
+  --ink:      #2D2D3A;
+  --ink-mid:  #6B6B80;
+  --ink-light:#A0A0B0;
+  --white:    #FFFFFF;
+  --bg:       #FFFDF7;
+  --card-bg:  #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,253,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid #F0EBE0;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--coral);
+  display: inline-block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-mid);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--coral); }
+
+.nav-cta {
+  background: var(--coral);
+  color: #fff !important;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  transition: transform 0.2s, background 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: #e85555 !important;
+  transform: translateY(-1px);
+  color: #fff !important;
+}
+
+/* HERO */
+.hero {
+  padding: 5rem 2rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--yellow-pale);
+  border: 1.5px solid var(--yellow);
+  color: #8B6914;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+
+.hero-title .highlight-yellow {
+  background: var(--yellow);
+  padding: 0 6px;
+  border-radius: 6px;
+  display: inline;
+}
+
+.hero-title .highlight-coral {
+  color: var(--coral);
+  font-style: italic;
+}
+
+.hero-sub {
+  color: var(--ink-mid);
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  max-width: 440px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--coral);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,107,107,0.35);
+}
+
+.btn-ghost {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.btn-ghost:hover { gap: 10px; }
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-blob {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  background: var(--yellow);
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  animation: blobmove 6s ease-in-out infinite alternate;
+}
+
+@keyframes blobmove {
+  from { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+  to   { border-radius: 40% 60% 45% 55% / 60% 40% 60% 40%; }
+}
+
+.hero-cards-stack {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 2rem;
+}
+
+.mini-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s;
+}
+
+.mini-card:nth-child(2) { transform: rotate(1deg) translateX(20px); }
+.mini-card:nth-child(3) { transform: rotate(-0.5deg) translateX(-10px); }
+
+.mini-card:hover { transform: rotate(0deg) scale(1.02) translateY(-2px); }
+
+.mini-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.mini-card-text { font-size: 0.82rem; }
+.mini-card-label { font-weight: 700; color: var(--ink); }
+.mini-card-sub { color: var(--ink-mid); font-size: 0.75rem; }
+
+/* VISI STRIP */
+.visi-strip {
+  background: var(--navy);
+  padding: 3rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.visi-strip::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--coral);
+  opacity: 0.15;
+  border-radius: 50%;
+  top: -60px;
+  left: -60px;
+}
+
+.visi-strip::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: var(--mint);
+  opacity: 0.15;
+  border-radius: 50%;
+  bottom: -40px;
+  right: 10%;
+}
+
+.visi-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.visi-text {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.3;
+  position: relative;
+  z-index: 1;
+}
+
+.visi-text span { color: var(--yellow); font-style: normal; }
+
+/* SECTION SHARED */
+.section {
+  padding: 5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--coral);
+}
+
+.section-link {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--coral);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.section-link:hover { gap: 10px; }
+
+/* BLOG */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.blog-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid #EEE8DF;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.blog-thumb {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card:first-child .blog-thumb { height: 220px; }
+
+.blog-body { padding: 1.25rem 1.5rem 1.5rem; }
+
+.blog-cat {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.blog-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card:first-child .blog-title { font-size: 1.25rem; }
+
+.blog-excerpt {
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.blog-meta {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  font-weight: 600;
+}
+
+/* PRODUK */
+.produk-bg {
+  background: var(--navy);
+  padding: 5rem 0;
+}
+
+.produk-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.produk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.produk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.produk-card {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.25s;
+  cursor: pointer;
+}
+
+.produk-card:hover { transform: translateY(-4px); }
+
+.produk-thumb {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+}
+
+.produk-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.9);
+}
+
+.produk-body {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 0 20px 20px;
+}
+
+.produk-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 0.5rem;
+}
+
+.produk-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.produk-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.produk-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.produk-price {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--yellow);
+}
+
+.produk-btn {
+  background: var(--coral);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 50px;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.produk-btn:hover {
+  background: #e85555;
+  transform: scale(1.04);
+}
+
+/* NEWSLETTER */
+.newsletter {
+  background: var(--yellow);
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter::before {
+  content: '✦';
+  position: absolute;
+  font-size: 8rem;
+  color: rgba(0,0,0,0.04);
+  top: -20px;
+  left: 5%;
+}
+
+.newsletter::after {
+  content: '✦';
+  position: absolute;
+  font-size: 5rem;
+  color: rgba(0,0,0,0.04);
+  bottom: -10px;
+  right: 8%;
+}
+
+.newsletter-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-sub {
+  color: #6B5A1A;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: 2px solid rgba(0,0,0,0.12);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.newsletter-input:focus { border-color: var(--coral); }
+
+.newsletter-btn {
+  background: var(--ink);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.newsletter-btn:hover {
+  background: var(--coral);
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.5);
+  padding: 3rem 2rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  max-width: 220px;
+}
+
+.footer-links h4 {
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--yellow); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-visual { display: none; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .produk-grid { grid-template-columns: 1fr; }
+  .produk-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 3rem 1.25rem 2rem; }
+  .section { padding: 3rem 1.25rem; }
+  .visi-strip { padding: 2.5rem 1.25rem; }
+}
+
+/* ANIMATIONS */
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-left-content { animation: fadein 0.7s ease both; }
+.hero-visual { animation: fadein 0.7s 0.2s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="logo-dot"></span>
+    Si Paling Bunda
+  </div>
+  <ul class="nav-links">
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#produk">Produk</a></li>
+    <li><a href="https://lynk.id/sipalingbunda" target="_blank" class="nav-cta">Lihat Semua Produk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left-content">
+    <div class="hero-tag">
+      ✨ Untuk para bunda hebat
+    </div>
+    <h1 class="hero-title">
+      Tempat bunda<br>
+      <span class="highlight-yellow">belajar,</span> tumbuh,<br>
+      dan <span class="highlight-coral">bahagia.</span>
+    </h1>
+    <p class="hero-sub">
+      Tips parenting, resep MPASI, konten pengasuhan penuh cinta, dan produk digital yang bikin hari-harimu lebih mudah.
+    </p>
+    <div class="hero-actions">
+      <a href="#blog" class="btn-primary">Baca Artikel</a>
+      <a href="#produk" class="btn-ghost">Lihat Produk &rarr;</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-blob"></div>
+    <div class="hero-cards-stack">
+      <div class="mini-card">
+        <div class="mini-icon" style="background:var(--coral-pale);">🍠</div>
+        <div class="mini-card-text">
+          <div class="mini-card-label">MPASI Monthly Plan</div>
+          <div class="mini-card-sub">30 hari menu sudah siap</div>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-icon" style="background:var(--mint-pale);">💚</div>
+        <div class="mini-card-text">
+          <div class="mini-card-label">Connect sebelum Correct</div>
+          <div class="mini-card-sub">Parenting penuh koneksi</div>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-icon" style="background:var(--violet-pale);">✨</div>
+        <div class="mini-card-text">
+          <div class="mini-card-label">Dari Tantrum ke Tentram</div>
+          <div class="mini-card-sub">Panduan emosi anak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISI STRIP -->
+<div class="visi-strip">
+  <p class="visi-eyebrow">Visi kami</p>
+  <p class="visi-text">
+    "Setiap ibu berhak merasa <span>bahagia</span>, dicintai, dan disayang keluarganya."
+  </p>
+</div>
+
+<!-- BLOG -->
+<section class="section" id="blog">
+  <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
+    <div>
+      <p class="eyebrow" style="color:var(--coral);">Artikel terbaru</p>
+      <h2 class="section-title">Bacaan buat <em>bunda</em> hari ini.</h2>
+    </div>
+    <a href="/blog" class="section-link">Semua artikel &rarr;</a>
+  </div>
+
+  <div class="blog-grid">
+
+    <div class="blog-card">
+      <div class="blog-thumb" style="background:var(--coral-pale);">🧡</div>
+      <div class="blog-body">
+        <span class="blog-cat" style="background:var(--coral-pale); color:#B34040;">Parenting</span>
+        <h3 class="blog-title">Anak Tantrum di Tempat Umum? Ini yang Sebenarnya Perlu Kamu Lakukan</h3>
+        <p class="blog-excerpt">Bukan dimarahi, bukan diabaikan. Ada cara yang lebih efektif, dan hasilnya jauh lebih baik untuk hubungan kamu dengan si kecil.</p>
+        <span class="blog-meta">12 April 2025 &bull; 5 menit baca</span>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-thumb" style="background:var(--mint-pale);">🥦</div>
+      <div class="blog-body">
+        <span class="blog-cat" style="background:var(--mint-pale); color:#1A6B65;">MPASI</span>
+        <h3 class="blog-title">7 Sayuran Terbaik untuk MPASI Pertama Bayi 6 Bulan</h3>
+        <p class="blog-excerpt">Mulai dari tekstur sampai kandungan gizi, panduan lengkap pilih sayuran yang tepat untuk si kecil.</p>
+        <span class="blog-meta">8 April 2025 &bull; 4 menit baca</span>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-thumb" style="background:var(--violet-pale);">💜</div>
+      <div class="blog-body">
+        <span class="blog-cat" style="background:var(--violet-pale); color:#5B3FA8;">Self-care</span>
+        <h3 class="blog-title">Ibu Bahagia Bukan Ibu yang Sempurna</h3>
+        <p class="blog-excerpt">Berhenti mengejar standar yang tidak realistis. Ini tentang menjadi cukup baik, dan itu sudah lebih dari cukup.</p>
+        <span class="blog-meta">3 April 2025 &bull; 3 menit baca</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRODUK -->
+<div class="produk-bg" id="produk">
+  <div class="produk-inner">
+    <div class="produk-header">
+      <div>
+        <p class="eyebrow" style="color:var(--yellow);">Produk digital</p>
+        <h2 class="section-title" style="color:#fff;">Buat hari-harimu <em>lebih mudah.</em></h2>
+      </div>
+      <a href="https://lynk.id/sipalingbunda" target="_blank" class="section-link" style="color:var(--yellow);">Semua produk &rarr;</a>
+    </div>
+
+    <div class="produk-grid">
+
+      <div class="produk-card">
+        <div class="produk-thumb" style="background:linear-gradient(135deg,#FF9A6C,#FF6B6B);">
+          🍠
+          <span class="produk-badge" style="color:var(--coral);">MPASI</span>
+        </div>
+        <div class="produk-body">
+          <p class="produk-tag">Ebook PDF</p>
+          <h3 class="produk-name">MPASI Monthly Plan</h3>
+          <p class="produk-desc">30 hari menu lengkap untuk bayi 4-12 bulan. Tinggal eksekusi, tanpa bingung.</p>
+          <div class="produk-footer">
+            <span class="produk-price">Rp 47.000</span>
+            <a href="https://lynk.id/sipalingbunda/p/mpasi-monthly-plan" target="_blank" class="produk-btn">Beli</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="produk-card">
+        <div class="produk-thumb" style="background:linear-gradient(135deg,#A78BFA,#7C5CDB);">
+          💜
+          <span class="produk-badge" style="color:#5B3FA8;">Parenting</span>
+        </div>
+        <div class="produk-body">
+          <p class="produk-tag">Ebook PDF</p>
+          <h3 class="produk-name">Dari Tantrum ke Tentram</h3>
+          <p class="produk-desc">Panduan praktis memahami emosi anak dan merespons dengan tenang dan penuh cinta.</p>
+          <div class="produk-footer">
+            <span class="produk-price">Rp 47.000</span>
+            <a href="https://lynk.id/sipalingbunda/p/dari-tantrum-ke-tentram" target="_blank" class="produk-btn">Beli</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="produk-card">
+        <div class="produk-thumb" style="background:linear-gradient(135deg,#4ECDC4,#2BAF9F);">
+          💚
+          <span class="produk-badge" style="color:#0F6E56;">Koneksi</span>
+        </div>
+        <div class="produk-body">
+          <p class="produk-tag">Ebook PDF</p>
+          <h3 class="produk-name">Connect sebelum Correct</h3>
+          <p class="produk-desc">Cara berkomunikasi dengan anak yang mempererat hubungan, bukan menciptakan jarak.</p>
+          <div class="produk-footer">
+            <span class="produk-price">Rp 47.000</span>
+            <a href="https://lynk.id/sipalingbunda/p/connect-sebelum-correct" target="_blank" class="produk-btn">Beli</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2 class="newsletter-title">Dapat tips parenting gratis, tiap minggu.</h2>
+  <p class="newsletter-sub">Bergabung dengan 1.000+ bunda yang sudah subscribe. Tidak ada spam, janji!</p>
+  <div class="newsletter-form">
+    <input type="email" class="newsletter-input" placeholder="emailkamu@gmail.com">
+    <button class="newsletter-btn">Subscribe</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Si Paling Bunda</div>
+        <p class="footer-tagline">Ibu bahagia, disayang keluarga.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Konten</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="#produk">Produk Digital</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Produk</h4>
+        <ul>
+          <li><a href="/mpasi-monthly-plan">MPASI Monthly Plan</a></li>
+          <li><a href="https://lynk.id/sipalingbunda/p/dari-tantrum-ke-tentram" target="_blank">Dari Tantrum ke Tentram</a></li>
+          <li><a href="https://lynk.id/sipalingbunda/p/connect-sebelum-correct" target="_blank">Connect sebelum Correct</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Ikuti Kami</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Si Paling Bunda. Semua hak dilindungi.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
